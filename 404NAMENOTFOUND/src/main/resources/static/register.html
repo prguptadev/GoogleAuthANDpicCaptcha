@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css"
+          integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css" />
+
+    <title>Register</title>
+</head>
+<body>
+<div class="custom-container container">
+    <h2 align="center">Register user</h2>
+    <div class="form-group">
+        <label for="login">Login</label>
+        <input id="login" type="text" class="form-control" placeholder="Enter login"/>
+    </div>
+    <div class="form-group">
+        <label for="password">Password: </label>
+        <input id="password" type="password" class="form-control" placeholder="Enter password"/>
+    </div>
+    <button id="btnRegister" type="button" class="btn btn-primary">Register</button>
+    <button id="btnCancelRegister" type="button" class="btn btn-outline-primary">Cancel</button>
+</div>
+
+<div id="modalRegister" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Configure your token</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    To complete registration you should configure your token in Google Authenticator application. You
+                    will need this token further to be able to log in.
+                </p>
+                <p>Scan the QR-code diplayed below or enter token manually.</p>
+                <div class="text-center">
+                    <img id="tokenQr" src="" class="img-thumbnail"/>
+                    <h3><span id="tokenValue"></span></h3>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="btnRegisterDone" type="button" class="btn btn-primary" data-dismiss="modal">Done</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"
+        integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4"
+        crossorigin="anonymous"></script>
+<script type="application/javascript" src="scripts.js"></script>
+</body>
+</html>

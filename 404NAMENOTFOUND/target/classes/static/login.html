@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css"
+          integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css" />
+
+    <title>Login</title>
+ <style type="text/css">
+ .bottle
+    {
+    position:absolute;
+      top: 25px;
+      z-index: 4;  
+    }
+    
+    .planck
+    {
+      position:absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 1;
+    }
+    
+    .dd
+    {
+    position:absolute;
+      top: 26px;
+      left: 2px;
+      z-index: 2;  
+    }
+    .dog
+    {
+      position:absolute;
+      top: -8px;
+      left: 10px;
+      z-index: 1;
+    }
+   
+    .ff
+    {
+    position:absolute;
+      top: 99px;
+      left: 2px;
+      z-index: 2;  
+    }
+    .fiss
+    {
+      position:absolute;
+      top: -12px;
+      left: 10px;
+      z-index: 1;
+    }
+    
+     .pp
+    {
+    position:absolute;
+      top: -24px;
+      left: 2px;
+      z-index: 2;  
+    }
+    .parr
+    {
+      position:absolute;
+      top: -10px;
+      left: 10px;
+      z-index: 1;
+    }
+   .piece
+   {
+   position:absolute;
+      top: 11px;
+      left:589px;
+      z-index: 2;
+   }
+   
+   .coast
+   {
+   
+   position:absolute;
+      top: 11px;
+      z-index: 3;
+   }
+   .one
+   {
+   	position: absolute;
+  left:300px;
+  top: 300px; 
+   }
+     .two
+   {
+   	position: absolute;
+  left:300px;
+  top: 300px; 
+   }
+   
+    .three
+   {
+   	position: absolute;
+  left:300px;
+  top: 300px; 
+   }
+   
+    .four
+   {
+   	position: absolute;
+  left:300px;
+  top: 300px; 
+   }
+   .buton
+   {
+   position: absolute;
+  left:550px;
+  top: 510px; 
+   }
+   
+   div.xx{
+    text-align: center;
+       }
+        div.puzz{
+    text-align: center;
+       }
+       
+       .hidee{
+   display: none;
+   }
+   
+  
+   
+   </style>
+</head>
+<body>
+
+<div class="custom-container container">
+    <h2 align="center">Login</h2>
+    <div id="msgLoginFailed" class="alert alert-danger collapse" role="alert">
+        Provided login or password could not be recognized
+    </div>
+    <div class="form-group">
+        <label for="login">Login</label>
+        <input id="login" type="text" class="form-control" placeholder="Enter login" />
+    </div>
+    <div class="form-group">
+        <label for="password">Password: </label>
+        <input id="password" type="password" class="form-control" placeholder="Enter password" />
+    </div>
+ </div>
+
+<div id ="captcha" class = "captcha"  style="display:''; bomargin: solid double;">
+ <div class = "xx">
+ <h3><span>Human or Robot ?</span></h3>
+<h4  id  =  "puzz" class ="puzz">Complete puzzle to Submit</h4> 
+</div>
+ <div id = "one" class = "one">
+		<div style="position: relative; top: 0;">
+			<img  src="images/bottle.png" id="cursorImage" class="bottle" ondragstart="return false;"/>
+			<img   src="images/piece.png" id="piece" class="piece" />
+			<img   src="images/coast.png" id="coast" class="coast" ondragstart="return false;"/>
+			<img   src="images/planck.png" class="planck" />
+		</div>
+	</div>
+	
+	<div id = "two" class = "two">
+		<div style="position: relative; top: 0; ">
+			<img  src="images/dd.png" style="height: 120px;width: 102px;" id="dd" class="dd" ondragstart="return false;"/>
+			<img   src="images/dog.png"  style="height: 200px;width: 200px;" id="dog" class="dog" ondragstart="return false;"/>
+		</div>
+	</div>
+	
+	<div id="three" class = "three">
+		<div style="position: relative; top: 0; ">
+			<img  src="images/ff.png" style="height: 122px; width: 71px;" id="ff" class="ff" ondragstart="return false;"/>
+			<img   src="images/fiss.png"   style="height: 200px;width: 200px;" id="fiss" class="fiss" ondragstart="return false;"/>
+		</div>
+	</div>
+	
+	<div id="four" class = "four">
+		<div style="position: relative; top: 0;">
+			<img  src="images/pp.png" style="height: 115px; width: 70px; " id="pp" class="pp" ondragstart="return false;"/>
+			<img   src="images/parr.png"  style="height: 200px;width: 200px;" id="parr" class="parr" ondragstart="return false;"/>
+		</div>
+	</div>
+ </div>
+ <div class="buton">   
+    <button id="btnLogin" type="button" class="btn btn-primary" disabled="disabled" onclick="showHide()">Login</button>
+    <button id="btnCancelLogin" type="button" class="btn btn-outline-primary">Cancel</button>
+</div>
+
+<div id="modalLoginCheckToken" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Verify your token</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="msgTokenCheckFailed" class="alert alert-danger collapse" role="alert">
+                    Provided token could not be recognized
+                </div>
+                <p>
+                    To complete login you should verify your token generated in Google Authenticator application.
+                    Please, enter the currently generated token to the field below
+                </p>
+                <div class="text-center">
+                    <input id="loginToken" type="text" placeholder="Enter token" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="btnTokenVerify" type="button" class="btn btn-primary">Verify</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="http://code.jquery.com/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"
+        integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4"
+        crossorigin="anonymous"></script>
+<script type="application/javascript" src="scripts.js"></script>
+<script type="text/javascript">
+
+let gMouseDownX = 0;
+let gMouseDownY = 0;
+let gMouseDownOffsetX = 0;
+let gMouseDownOffsetY = 0;
+let bottlefinalpos = 0;
+let randomposbottle= 0;
+let randompocoast= 0;
+//var objflt  = 'cursorImage';
+//var capobj =  'coast';
+let picatpcha = 0;
+
+var objflt  = 'dd';
+var capobj =  'dog';
+
+function captcha(){
+	
+	var min = 1;
+    var max = 3;
+    var rmnumber = Math.floor(Math.random() * (max + 1) + min);
+    console.log("rmnumberrmnumberrmnumber == ",rmnumber);
+    picatpcha = rmnumber;
+    if(rmnumber == 1){
+    	document.getElementById('two').className += ' hidee';
+    	document.getElementById('three').className += ' hidee';
+    	document.getElementById('four').className += ' hidee';
+    	 objflt  = 'cursorImage';
+    	 capobj =  'coast';
+     	document.getElementById('puzz').className += ' hidee';
+
+    }
+    else if(rmnumber == 2){
+    	document.getElementById('one').className += ' hidee';
+    	document.getElementById('three').className += ' hidee';
+    	document.getElementById('four').className += ' hidee';
+    	 objflt  = 'dd';
+    	 capobj =  'dog';
+    }
+    else if(rmnumber == 3){
+    	document.getElementById('two').className += ' hidee';
+    	document.getElementById('one').className += ' hidee';
+    	document.getElementById('four').className += ' hidee';
+    	 objflt  = 'ff';
+    	 capobj =  'fiss';
+    }
+    else {
+    	document.getElementById('two').className += ' hidee';
+    	document.getElementById('one').className += ' hidee';
+    	document.getElementById('three').className += ' hidee';
+    	 objflt  = 'pp';
+    	 capobj =  'parr';
+    }
+}
+
+
+function addListeners() {
+    document.getElementById(objflt).addEventListener('mousedown', mouseDown, false);
+    window.addEventListener('mouseup', mouseUp, false);   
+}
+
+
+
+function mouseUp() {
+    window.removeEventListener('mousemove', divMove, true);
+}
+
+
+function mouseDown(e) {
+    gMouseDownX = e.clientX;
+    gMouseDownY = e.clientY;
+
+    var div = document.getElementById(objflt);
+
+    //The following block gets the X offset (the difference between where it starts and where it was clicked)
+    let leftPart = "";
+    if(!div.style.left)
+        leftPart+="0px";    //In case this was not defined as 0px explicitly.
+    else
+        leftPart = div.style.left;
+    let leftPos = leftPart.indexOf("px");
+    let leftNumString = leftPart.slice(0, leftPos); // Get the X value of the object.
+    gMouseDownOffsetX = gMouseDownX - parseInt(leftNumString,10);
+
+    //The following block gets the Y offset (the difference between where it starts and where it was clicked)
+    let topPart = "";
+    if(!div.style.top)
+        topPart+="0px";     //In case this was not defined as 0px explicitly.
+    else
+        topPart = div.style.top;
+    let topPos = topPart.indexOf("px");
+    let topNumString = topPart.slice(0, topPos);    // Get the Y value of the object.
+   // gMouseDownOffsetY = gMouseDownY - parseInt(topNumString,10);
+
+    window.addEventListener('mousemove', divMove, true);
+}
+
+
+
+function divMove(e){
+
+	var minNumber = 50;
+    var maxNumber = 1000;
+    var randomnumber = Math.floor(Math.random() * (maxNumber + 1) + minNumber);
+	 randomposbottle = randomnumber;
+	
+    var div = document.getElementById(objflt);
+    div.style.position = 'absolute';
+ //   let topAmount = e.clientY - gMouseDownOffsetY;
+   // div.style.top = topAmount + 'px';
+    let leftAmount = e.clientX - gMouseDownOffsetX;
+    if(leftAmount >55 && leftAmount<740 )
+    div.style.left = leftAmount + 'px';
+    console.log("loc=== ",e);
+    console.log("cursorImage",div);
+    bottlefinalpos = leftAmount;
+    console.log("bottlefinalpos",bottlefinalpos);
+	console.log("randomposbottle-2",randomposbottle);
+    
+    button(bottlefinalpos);
+}
+
+
+function button(bottlefinalpos) {
+	if(picatpcha == 1){
+		if(bottlefinalpos > (randompocoast-3) && bottlefinalpos < (randompocoast+20) ){
+		  document.getElementById("btnLogin").disabled = false;
+		  document.getElementById("btnLogin").submit;
+		// document.getElementById("btnLogin").click();
+		 console.log("bottlefinalpos--1-1-1",bottlefinalpos);
+		}
+		else 
+			document.getElementById("btnLogin").disabled = true;
+		}
+	else if(picatpcha == 2){
+		if(bottlefinalpos > (randompocoast+104) && bottlefinalpos < (randompocoast+125) ){
+			  document.getElementById("btnLogin").disabled = false;
+			  document.getElementById("btnLogin").submit;
+			// document.getElementById("btnLogin").click();
+			 console.log("bottlefinalpos--1-1-1",bottlefinalpos);
+			}
+			else 
+				document.getElementById("btnLogin").disabled = true;
+		
+	}
+	else if(picatpcha == 3){
+		if(bottlefinalpos > (randompocoast+120) && bottlefinalpos < (randompocoast+150) ){
+			  document.getElementById("btnLogin").disabled = false;
+			  document.getElementById("btnLogin").submit;
+			// document.getElementById("btnLogin").click();
+			 console.log("bottlefinalpos--1-1-1",bottlefinalpos);
+			}
+			else 
+				document.getElementById("btnLogin").disabled = true;
+	}
+	else {
+		if(bottlefinalpos > (randompocoast+30) && bottlefinalpos < (randompocoast+50) ){
+			  document.getElementById("btnLogin").disabled = false;
+			  document.getElementById("btnLogin").submit;
+			// document.getElementById("btnLogin").click();
+			 console.log("bottlefinalpos--1-1-1",bottlefinalpos);
+			}
+			else 
+				document.getElementById("btnLogin").disabled = true;
+	}
+}
+
+function botpos(){
+
+	var minNumber = 30;
+	var maxNumber = 62;
+	var randomnumber = Math.floor(Math.random() * (maxNumber - minNumber)) + minNumber;
+	  
+	  return randomnumber;
+		
+	  
+		
+}
+function coastpos(){
+	var minNumber1 = 373;
+	var maxNumber1 = 640;
+	var randomnumbercoast = Math.floor(Math.random() * (maxNumber1 - minNumber1)) + minNumber1;
+		 return randomnumbercoast;
+			console.log("randomnumbercoast-2",randomnumbercoast);
+
+	 		 
+}
+
+function showHide() {
+	   var puzz = document.getElementById('captcha');
+	   if (puzz.style.display == '') {
+		   puzz.style.display = 'none';
+	   }
+	   else {
+		   puzz.style.display = '';
+	   }
+	 }
+
+window.onload=function(){
+captcha();
+randomposbottle = botpos();
+var div1 = document.getElementById(objflt);
+div1.style.left = randomposbottle + 'px';
+
+
+randompocoast = coastpos();
+var div2 = document.getElementById(capobj);
+div2.style.left = randompocoast + 'px';
+console.log("randompocoast  = ",randompocoast);
+addListeners();
+}
+
+</script>
+</body>
+</html>
