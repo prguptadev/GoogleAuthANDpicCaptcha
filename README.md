@@ -1,5 +1,6 @@
 # GoogleAuth-picCaptcha
-Hackathon project -Google authentication with human verification using pic-captcha. Spring boot - maven 
+Hackathon project -Google authentication with human verification using pic-captcha. Spring boot - maven .
+
 This is a sample implementation of two-factor authentication approach for web applications via Google Authenticator and TOTP algorithm.
 
 
