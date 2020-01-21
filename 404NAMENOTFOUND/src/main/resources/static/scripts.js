@@ -41,8 +41,8 @@ $("#btnTokenVerify").click(function () {
     $('#msgTokenCheckFailed').hide();
     $.post("/authenticate/token/" + $("#login").val() + "/" + $("#password").val() + "/" + $("#loginToken").val(), function (data, status) {
         if (data == 'AUTHENTICATED') {
-           window.location.replace("https://10.112.179.40:481/retail/ibanking/#/post-login/home/main/timeline");
-          //  window.location.replace("secured.html");
+        //   window.location.replace("https://10.112.179.40:481/retail/ibanking/#/post-login/home/main/timeline");
+           window.location.replace("secured.html");
         } else {
             $('#msgTokenCheckFailed').show();
         }
